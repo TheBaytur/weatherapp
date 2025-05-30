@@ -40,10 +40,18 @@ Widget _buildBody() {
   return SingleChildScrollView(
     child: Column(
       children: <Widget> [
-        
-        
         _headerImage(),
-        _weatherDescription()
+        SafeArea(child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              _weatherDescription(),
+              _temperature (),
+            ]
+          ),
+        )),
+        
       ],
     ),
   );
@@ -60,6 +68,7 @@ Image _headerImage () {
 
 Column _weatherDescription(){
   return Column( 
+    crossAxisAlignment: CrossAxisAlignment.center,
   children: <Widget> [
     Text('Friday, 30 May',
       style: TextStyle(
@@ -75,6 +84,34 @@ Column _weatherDescription(){
         fontWeight: FontWeight.bold,
       ),
     ),
+  ],
+  );
+}
+
+Row _temperature () {
+  return Row(
+  children: <Widget> [
+    Column (
+      children: <Widget>[
+        Icon(Icons.wb_sunny,
+        color: Colors.amber,
+        ),
+        SizedBox(width: 16.0),
+        Column(
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text('15°C Clear', 
+              style: TextStyle(color: Colors.deepPurple),
+              ),
+              ],
+            ),
+          ],
+        ),
+      ],
+
+    ),
+
   ],
   );
 }
