@@ -98,10 +98,18 @@ Row _temperature () {
         ),
         SizedBox(width: 16.0),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
               children: <Widget>[
-                Text('15°C Clear', 
+                Text('30°C Clear', 
+              style: TextStyle(color: Colors.deepPurple),
+              ),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                Text('Manila city, Philippines', 
               style: TextStyle(color: Colors.deepPurple),
               ),
               ],
