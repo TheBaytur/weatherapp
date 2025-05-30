@@ -40,7 +40,10 @@ Widget _buildBody() {
   return SingleChildScrollView(
     child: Column(
       children: <Widget> [
+        
+        
         _headerImage(),
+        _weatherDescription()
       ],
     ),
   );
@@ -52,5 +55,26 @@ Image _headerImage () {
     fit: BoxFit.cover,
     width: double.infinity,
     height: 200.0,
+  );
+}
+
+Column _weatherDescription(){
+  return Column( 
+  children: <Widget> [
+    Text('Friday, 30 May',
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+    Divider(),
+    Text (
+      'Sunny, 25°C',
+      style: TextStyle(
+        fontSize: 30.0,
+        fontWeight: FontWeight.bold,
+      ),
+    ),
+  ],
   );
 }
