@@ -37,6 +37,10 @@ class BodyListView extends StatelessWidget {
 
 Widget _myListView() {
   return ListView(
+    padding: EdgeInsets.all(10.0),
+    //shrinkWrap: true,
+    scrollDirection: Axis.horizontal,
+    itemExtent: 300.0,
     children: <Widget>[
       ListTile(title: Text('Sunny'),
       subtitle: Text('Today clear'),
