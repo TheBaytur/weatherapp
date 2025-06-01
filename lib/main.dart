@@ -38,9 +38,22 @@ class BodyListView extends StatelessWidget {
 Widget _myListView() {
   return ListView(
     children: <Widget>[
-      ListTile(title: Text('Sunny')),
-      ListTile(title: Text('Cloudy')),
-      ListTile(title: Text('Rainy')),
+      ListTile(title: Text('Sunny'),
+      subtitle: Text('Today clear'),
+      leading: Icon(Icons.wb_sunny),
+      iconColor: Colors.amberAccent,
+      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+      ),
+      ListTile(title: Text('Cloudy'),
+      leading: Icon(Icons.wb_cloudy),
+      iconColor: Colors.grey,
+      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+      ),
+      ListTile(title: Text('Rainy'),
+      leading: Icon(Icons.umbrella),
+      iconColor: Colors.blueAccent,
+      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
+      ),
 
       
     ],
