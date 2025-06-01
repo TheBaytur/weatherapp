@@ -146,7 +146,9 @@ Row _footerRatings() {
       Icon(Icons.star, size: 15.0,color: Colors.black),
     ],
   );
-  return Row(children: <Widget>[
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: <Widget>[
     Text ('Info with openweathermap.org', style: TextStyle(
       fontSize: 15.0,
       color: Colors.black87,
