@@ -36,31 +36,22 @@ class BodyListView extends StatelessWidget {
 }
 
 Widget _myListView() {
-  return ListView(
-    padding: EdgeInsets.all(10.0),
-    //shrinkWrap: true,
-    scrollDirection: Axis.horizontal,
-    itemExtent: 300.0,
-    children: <Widget>[
-      ListTile(title: Text('Sunny'),
-      subtitle: Text('Today clear'),
-      leading: Icon(Icons.wb_sunny),
-      iconColor: Colors.amberAccent,
-      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-      ),
-      ListTile(title: Text('Cloudy'),
-      leading: Icon(Icons.wb_cloudy),
-      iconColor: Colors.grey,
-      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-      ),
-      ListTile(title: Text('Rainy'),
-      leading: Icon(Icons.umbrella),
-      iconColor: Colors.blueAccent,
-      trailing: Icon(Icons.keyboard_arrow_right, color: Colors.grey),
-      ),
+  final List<String> items = List<String>.generate(10000, (index) => 'Item $index');
+  return ListView.builder(
+    itemCount: items.length,
+    itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              title: Text('${items[index]}'),
+              subtitle: Text('Subtitle for ${items[index]}'),
+              leading: Icon(Icons.cloud, color: Colors.blue),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
+            ),
+          );
 
-      
-    ],
+    },
+    
+    
   );
 }
 
