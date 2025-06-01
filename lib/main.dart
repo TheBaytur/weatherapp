@@ -138,6 +138,7 @@ Wrap _temperatureForecast() {
 
 Row _footerRatings() {
   var stars = Row(
+    mainAxisSize: MainAxisSize.min,
     children: <Widget>[
       Icon(Icons.star, size: 15.0,  color: Colors.amber),
       Icon(Icons.star, size: 15.0,color: Colors.amber),
