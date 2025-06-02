@@ -45,6 +45,22 @@ Widget _myListView() {
   return ListView.builder(
     itemCount: items.length,
     itemBuilder: (context, index) {
+      final item = items[index];
+
+      if(item is HeadingItem) {
+        return ListTile(
+          title: Text(item.heading, style: Theme.of(context).
+          textTheme.titleLarge),
+        );
+      } else if(item is MessageItem) {
+        return ListTile(
+          title: Text(item.sender),
+          subtitle: Text(item.body),
+          leading: Icon(Icons.message, color: Colors.red),
+          trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
+        );
+      }
+        return null;
           // return Card(
           //   child: ListTile(
           //     title: Text('${items[index]}'),
