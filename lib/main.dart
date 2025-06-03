@@ -33,8 +33,7 @@ class HomePage extends StatelessWidget {
           Route route = MaterialPageRoute(
             builder: (context) => SecondPage(),
           );
-          Navigator.push(context, route);
-          
+          Navigator.push(context, route);         
         },
         child: Text('Go to Second Page'),
       ),);
@@ -42,14 +41,13 @@ class HomePage extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Second Page',
+          'Go to Second Page',
           style: TextStyle(color: Colors.black87),
         ),
         centerTitle: true,
