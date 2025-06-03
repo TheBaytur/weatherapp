@@ -17,12 +17,10 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
-        body: HomePage(),               
+        body: HomePage(),
       ),
       initialRoute: '/second',
-      routes: {
-        '/second': (context) => SecondPage(),
-      },
+      routes: {'/second': (context) => SecondPage()},
     );
   }
 }
@@ -32,18 +30,18 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: () { 
+        onPressed: () {
           Navigator.pushNamed(context, '/second');
           // Alternatively, you can use:
-          // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));        
+          // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
         },
         child: Text('Go to Second Page'),
-      ),);
+      ),
+    );
   }
 }
 
 class SecondPage extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,11 +64,3 @@ class SecondPage extends StatelessWidget {
     );
   }
 }
-
-
-
-  
-
-
-
-
