@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
           // Alternatively, you can use:
           // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));        
         },
-        child: Text('Go to Second Page'),
+        child: Text('Go to Second Page.'),
       ),);
   }
 }
