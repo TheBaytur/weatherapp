@@ -11,84 +11,48 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Weather Application',
+            'Routing and Navigation',
             style: TextStyle(color: Colors.black87),
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
-          leading: IconButton(icon: Icon(Icons.menu), onPressed: () {}),
-          iconTheme: IconThemeData(color: Colors.black87),
-          actions: [IconButton(icon: Icon(Icons.settings), onPressed: () {})],
-        ),
-
-        body: BodyListView(),
         
+        ),
+        body: HomePage(),               
       ),
     );
   }
 }
 
-class BodyListView extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return _myListView();
+    return Center(
+      child: ElevatedButton(
+        onPressed: () { 
+          Route route = MaterialPageRoute(
+            builder: (context) => SecondPage(),
+          );
+          Navigator.push(context, route);
+          
+        },
+        child: Text('Go to Second Page'),
+      ),);
   }
 }
 
-Widget _myListView() {
-  final List<ListItem> items = List<ListItem>.generate(
-    10000, 
-  (i) => i % 6 == 0 
-      ? HeadingItem('Heading $i')
-      : MessageItem('Message $i', 'Message content for this $i'));
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
 
-  return ListView.builder(
-    itemCount: items.length,
-    itemBuilder: (context, index) {
-      final item = items[index];
-
-      if(item is HeadingItem) {
-        return ListTile(
-          title: Text(item.heading, style: Theme.of(context).
-          textTheme.titleLarge),
-        );
-      } else if(item is MessageItem) {
-        return ListTile(
-          title: Text(item.sender),
-          subtitle: Text(item.body),
-          leading: Icon(Icons.message, color: Colors.red),
-          trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
-        );
-      }
-        return null;
-          // return Card(
-          //   child: ListTile(
-          //     title: Text('${items[index]}'),
-          //     subtitle: Text('Subtitle for ${items[index]}'),
-          //     leading: Icon(Icons.cloud, color: Colors.blue),
-          //     trailing: Icon(Icons.arrow_forward_ios, color: Colors.grey),
-          //   ),
-          // );
-    },
-  );
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
 }
 
-  abstract class ListItem {}
 
 
-
-class HeadingItem implements ListItem {
-  final String heading;
-  HeadingItem(this.heading);
-
-}
-
-class MessageItem implements ListItem {
-  final String sender;
-  final String body;
-
-  MessageItem(this.sender, this.body);
-}
+  
 
 
 
