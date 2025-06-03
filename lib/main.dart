@@ -20,6 +20,9 @@ class MyApp extends StatelessWidget {
         ),
         body: HomePage(),               
       ),
+      routes: {
+        '/second': (context) => SecondPage(),
+      },
     );
   }
 }
@@ -30,10 +33,9 @@ class HomePage extends StatelessWidget {
     return Center(
       child: ElevatedButton(
         onPressed: () { 
-          Route route = MaterialPageRoute(
-            builder: (context) => SecondPage(),
-          );
-          Navigator.push(context, route);         
+          Navigator.pushNamed(context, '/second');
+          // Alternatively, you can use:
+          // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));        
         },
         child: Text('Go to Second Page'),
       ),);
