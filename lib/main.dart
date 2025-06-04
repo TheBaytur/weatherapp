@@ -23,8 +23,8 @@ class FirstHome extends StatelessWidget {
         ),
         body: HomePage(),
       ),
-      initialRoute: '/second',
-      routes: {'/second': (context) => SecondPage()},
+      // initialRoute: '/second',
+       routes: {'/second': (context) => SecondPage()},
     );
   }
 }
@@ -51,7 +51,7 @@ class SecondPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Go to Second Page',
+          'Go to First Page',
           style: TextStyle(color: Colors.black87),
         ),
         centerTitle: true,
@@ -62,7 +62,7 @@ class SecondPage extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go Back to Home Page'),
+          child: Text('Go Back to First Page'),
         ),
       ),
     );
