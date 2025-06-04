@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    
     home: FirstHome(),
     routes: {
       '/first': (context) => FirstHome(),
@@ -16,8 +15,7 @@ class FirstHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-
+          debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text(
