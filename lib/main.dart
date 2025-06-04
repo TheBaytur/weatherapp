@@ -15,43 +15,40 @@ class FirstHome extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Routing and Navigation',
+            'First Page',
             style: TextStyle(color: Colors.black87),
           ),
           centerTitle: true,
           backgroundColor: Colors.white,
         ),
-        body: HomePage(),
+        body: Center(
+          child: ElevatedButton(
+            onPressed: (){
+              User user = User(name: 'John Doe', age: 30);
+              Route route = MaterialPageRoute(
+                builder: (context) => SecondPage(user: user),
+              );
+            Navigator.push(context, route);
+            },
+            child: Text('Go to Second Page'),
+          ),
+        ),
       ),
       // initialRoute: '/second',
-       routes: {'/second': (context) => SecondPage()},
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/second');
-          // Alternatively, you can use:
-          // Navigator.push(context, MaterialPageRoute(builder: (context) => SecondPage()));
-        },
-        child: Text('Go to Second Page'),
-      ),
+       //routes: {'/second': (context) => SecondPage()},
     );
   }
 }
 
 class SecondPage extends StatelessWidget {
+  final User user;
+  SecondPage({required this.user});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Go to First Page',
+          '${this.user.name} - ${this.user.age}',
           style: TextStyle(color: Colors.black87),
         ),
         centerTitle: true,
@@ -67,4 +64,11 @@ class SecondPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class User {
+  String name;
+  int age;
+
+  User({required this.name, required this.age});
 }
