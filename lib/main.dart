@@ -33,9 +33,7 @@ class FirstHome extends StatelessWidget {
             child: Text('Go to Second Page'),
           ),
         ),
-      ),
-      // initialRoute: '/second',
-       //routes: {'/second': (context) => SecondPage()},
+      ),      
     );
   }
 }
