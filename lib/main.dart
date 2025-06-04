@@ -45,7 +45,7 @@ class SecondPage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context)!.settings;
+    RouteSettings settings = ModalRoute.of(context)!.settings; //only if route has arguments
     user = settings.arguments as User;
     return Scaffold(
       appBar: AppBar(
