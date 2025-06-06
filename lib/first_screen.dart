@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart'; 
+import 'first_screen.dart';
+import 'second_screen.dart';
 
 
 class FirstScreen extends StatefulWidget {
@@ -18,7 +20,10 @@ class _FirstScreenState extends State<FirstScreen> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pop(context, 'Hello from First Screen!');
+            Route route = MaterialPageRoute(
+              builder: (context) => SecondScreen(data: text),
+            );
+            Navigator.push(context, route);
           },
           child: Text('Go Back with Data'),
         ),
