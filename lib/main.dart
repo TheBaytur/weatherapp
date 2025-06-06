@@ -41,7 +41,7 @@ class FirstHome extends StatelessWidget {
         body: Center(
           child: ElevatedButton(
             onPressed: (){
-              User user = User(name: 'John Doe', age: 30);
+              User user = User(name: 'John Doe', age: 33);
               
             Navigator.pushNamed(context, '/second', arguments: user);
             },
