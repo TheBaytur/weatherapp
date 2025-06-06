@@ -6,7 +6,6 @@ class FirstScreen extends StatefulWidget {
   _FirstScreenState createState() => _FirstScreenState();
   
 }
-
 class _FirstScreenState extends State<FirstScreen> {
   String text = 'Hello from First Screen!';
   @override
@@ -36,7 +35,6 @@ class _FirstScreenState extends State<FirstScreen> {
       ),
     );
   }
-
 
 void _returnDataFromSecondScreen(BuildContext context) async{
   Route route = MaterialPageRoute(
