@@ -3,9 +3,22 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     home: FirstHome(),
-    routes: {
-      '/first': (context) => FirstHome(),
-      '/second': (context) => SecondPage(),
+    onGenerateRoute: (settings) {
+      switch (settings.name) {
+        case '/':
+          
+          return MaterialPageRoute(
+            builder: (context) => FirstHome(),
+          );
+          break;
+          case '/second':
+          User user = settings.arguments as User;
+          return MaterialPageRoute(
+            builder: (context) => SecondPage(user: user),
+          );
+          break;
+          
+      }
 
     },
   ));
@@ -41,12 +54,12 @@ class FirstHome extends StatelessWidget {
 }
 
 class SecondPage extends StatelessWidget {
-  late User user;
+  final User user;
+  SecondPage({required this.user});
   
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context)!.settings; //only if route has arguments
-    user = settings.arguments as User;
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(
