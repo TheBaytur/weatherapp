@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart'; 
-import 'first_screen.dart';
+import 'package:flutter/material.dart';   
 import 'second_screen.dart';
-
 
 class FirstScreen extends StatefulWidget {
   @override
@@ -18,17 +16,36 @@ class _FirstScreenState extends State<FirstScreen> {
         title: Text('First Screen'),
       ),
       body: Center(
-        child: ElevatedButton(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(32.0),
+              child: Text(text, style: TextStyle(fontSize: 20),
+              ),
+            ),
+            ElevatedButton(
+          child: Text('Go to Second Screen'),
           onPressed: () {
-            Route route = MaterialPageRoute(
-              builder: (context) => SecondScreen(data: text),
-            );
-            Navigator.push(context, route);
+            _returnDataFromSecondScreen(context);
           },
-          child: Text('Go Back with Data'),
+          
         ),
+          ],
+      ),
       ),
     );
   }
+
+
+void _returnDataFromSecondScreen(BuildContext context) async{
+  Route route = MaterialPageRoute(
+              builder: (context) => SecondScreen());
+            final result = await Navigator.push(context, route);
+
+            setState(() {
+              text = result;
+            });
+}
 }
 
